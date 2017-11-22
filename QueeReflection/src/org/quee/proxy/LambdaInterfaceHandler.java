@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import org.quee.domain.Person;
 /**
- * lambda±í´ïÊ½¿ÉÒÔ
+ * lambdaè¡¨è¾¾å¼å®ç°æ¥å£
  * @author 15161
  *
  */
@@ -18,7 +18,7 @@ public class LambdaInterfaceHandler {
 
 	
 	/**
-	 * Ê¹ÓÃlambda±í´ïÊ½Ö±½Ó»ñÈ¡»ñÈ¡¸Ã·½·¨, 
+	 * ä½¿ç”¨lambdaè¡¨è¾¾å¼ç›´æ¥è·å–è·å–è¯¥æ–¹æ³•, 
 	 * @param proxy
 	 * @param method
 	 * @param args
@@ -43,7 +43,7 @@ public class LambdaInterfaceHandler {
 		
 			
 			if(((Class<?>) returnType).isPrimitive()) {
-				System.out.println("ÊÇ»ù±¾Êı¾İÀàĞÍµÄ·µ»ØÖµ");
+				System.out.println("æ˜¯åŸºæœ¬æ•°æ®ç±»å‹çš„è¿”å›å€¼");
 				
 				if(returnType == int.class) {
 					
@@ -65,7 +65,7 @@ public class LambdaInterfaceHandler {
 		@SuppressWarnings("unchecked")
 		T proxyPerson = (T)Proxy.newProxyInstance(LambdaInterfaceHandler.class.getClassLoader(),
 				clazzs, LambdaInterfaceHandler::invoke);
-		//lambda±í´ïÊ½Ê¡ÂÔÁËnew ¶ÔÏóµÄÂé·³, ²¢ÇÒĞÔÄÜ±ÈÄÚ²¿ÀàÒªºÃ
+		//lambdaè¡¨è¾¾å¼çœç•¥äº†new å¯¹è±¡çš„éº»çƒ¦, å¹¶ä¸”æ€§èƒ½æ¯”å†…éƒ¨ç±»è¦å¥½
 		
 		return proxyPerson;
 	}
