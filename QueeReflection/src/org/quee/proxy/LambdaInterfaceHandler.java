@@ -51,7 +51,7 @@ public class LambdaInterfaceHandler {
 		}
 
 		return null;
-
+ 
 	}
 
 	public static <T> T getProxy(Class<T> interfaceType) {
