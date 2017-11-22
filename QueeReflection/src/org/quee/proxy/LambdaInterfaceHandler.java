@@ -11,7 +11,6 @@ import org.quee.domain.Person;
 
 /**
  * lambda表达式 + 动态代理实现接口
- * 
  * @author 15161
  *
  */
@@ -19,7 +18,6 @@ public class LambdaInterfaceHandler {
 
 	/**
 	 * 使用lambda表达式直接获取获取该方法,
-	 * 
 	 * @param proxy
 	 * @param method
 	 * @param args
