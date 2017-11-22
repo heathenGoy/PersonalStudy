@@ -8,67 +8,60 @@ import java.lang.reflect.Type;
 import java.util.Arrays;
 
 import org.quee.domain.Person;
+
 /**
- * lambda±í´ïÊ½¿ÉÒÔ
+ * lambdaè¡¨è¾¾å¼ + åŠ¨æ€ä»£ç†å®ç°æ¥å£
+ * 
  * @author 15161
  *
  */
 public class LambdaInterfaceHandler {
-	
 
-	
 	/**
-	 * Ê¹ÓÃlambda±í´ïÊ½Ö±½Ó»ñÈ¡»ñÈ¡¸Ã·½·¨, 
+	 * ä½¿ç”¨lambdaè¡¨è¾¾å¼ç›´æ¥è·å–è·å–è¯¥æ–¹æ³•,
+	 * 
 	 * @param proxy
 	 * @param method
 	 * @param args
 	 * @return
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
+	 * @throws IllegalAccessException
+	 * @throws InstantiationException
 	 * @throws Throwable
 	 */
-	public static Object invoke(Object proxy, Method method, Object[] args){
-		
+	public static Object invoke(Object proxy, Method method, Object[] args) {
+
 		System.out.println("haha!");
 		String name = method.getName();
 		System.out.println("methodName:" + name);
 		Class<?>[] parameterTypes = method.getParameterTypes();
 		System.out.println("params:" + Arrays.toString(parameterTypes));
-		//Class<?> returnType = method.getReturnType();
+		// Class<?> returnType = method.getReturnType();
 		Type returnType = method.getGenericReturnType();
 		System.out.println("return:" + returnType);
 		Type[] genericParameterTypes = method.getGenericParameterTypes();
 		System.out.println("genericParams:" + Arrays.toString(genericParameterTypes));
-		
-		
-			
-			if(((Class<?>) returnType).isPrimitive()) {
-				System.out.println("ÊÇ»ù±¾Êı¾İÀàĞÍµÄ·µ»ØÖµ");
-				
-				if(returnType == int.class) {
-					
-					return 0;
-				}
-			}
-			
-			
-		
-	
-		return null;
-		
-	}
-	
 
-	
+		if (((Class<?>) returnType).isPrimitive()) {
+			System.out.println("æ˜¯åŸºæœ¬æ•°æ®ç±»å‹çš„è¿”å›å€¼");
+
+			if (returnType == int.class) {
+
+				return 0;
+			}
+		}
+
+		return null;
+
+	}
+
 	public static <T> T getProxy(Class<T> interfaceType) {
-		Class<?>[] clazzs = new Class[] {interfaceType};
+		Class<?>[] clazzs = new Class[] { interfaceType };
 		@SuppressWarnings("unchecked")
-		T proxyPerson = (T)Proxy.newProxyInstance(LambdaInterfaceHandler.class.getClassLoader(),
-				clazzs, LambdaInterfaceHandler::invoke);
-		//lambda±í´ïÊ½Ê¡ÂÔÁËnew ¶ÔÏóµÄÂé·³, ²¢ÇÒĞÔÄÜ±ÈÄÚ²¿ÀàÒªºÃ
-		
+		T proxyPerson = (T) Proxy.newProxyInstance(LambdaInterfaceHandler.class.getClassLoader(), clazzs,
+				LambdaInterfaceHandler::invoke);
+		// lambdaè¡¨è¾¾å¼çœç•¥äº†new å¯¹è±¡çš„éº»çƒ¦, å¹¶ä¸”æ€§èƒ½æ¯”å†…éƒ¨ç±»è¦å¥½
+
 		return proxyPerson;
 	}
 
-	
 }
