@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import org.quee.domain.Person;
 /**
- * lambda表达式实现接口
+ * lambda表达式 + 动态代理实现接口
  * @author 15161
  *
  */
